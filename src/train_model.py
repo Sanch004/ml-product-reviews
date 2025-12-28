@@ -4,9 +4,10 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB
 import joblib
  
-df = pd.read_csv("product_reviews_full.csv")
+df = pd.read_csv("ml-product-reviews/data/product_reviews_full.csv")
  
 # drop all rows with missing values
 df = df.dropna()
@@ -40,7 +41,7 @@ preprocessor = ColumnTransformer(
 # Define pipeline with the best model (e.g. RandomForestClassifier)
 pipeline = Pipeline([
     ("preprocessing", preprocessor),
-    ("classifier", RandomForestClassifier())
+    ("classifier", MultinomialNB())
 ])
  
 # Train the model on the entire dataset
