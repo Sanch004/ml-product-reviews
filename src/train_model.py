@@ -41,7 +41,7 @@ preprocessor = ColumnTransformer(
 # Define pipeline with the best model (e.g. RandomForestClassifier)
 pipeline = Pipeline([
     ("preprocessing", preprocessor),
-    ("classifier", MultinomialNB())
+    ("classifier", RandomForestClassifier())
 ])
  
 # Train the model on the entire dataset
